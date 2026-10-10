@@ -11,7 +11,7 @@ ubit0 printwithasm(ubit8 str) {
   assembly_x86_b16 {
     (bx = str)
     // the () at the top of the inline asm block puts values into registers (so in this example it stores str into BX)
-    mov ax, 0xb8000
+    mov ax, 0xb800
     mov es, ax
     mov es[0x0000], bx
     mov es[0x0001], 0x0e
