@@ -17,4 +17,4 @@ ubit0 printwithasm(ubit8 str) {
     mov es[0x0001], 0x0e
   }
 }
-// and that is how you print with assembly in Paper C!!!!! :D 2.pap will show how to use #address to print without assembly
+// and that is how you print with assembly in Paper C!!!!! :D 2.pap will show how to use #register to print without assembly
