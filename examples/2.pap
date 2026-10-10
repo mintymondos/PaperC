@@ -1,0 +1,17 @@
+// this file will explain how to print WITHOUT inline assembly
+
+ubit8 var = 1
+#register ax = 0xb8000
+#register es = ax
+
+
+// the #register flag means the variable IS an x86 register, if the variable name does not correspond to a register the file won't compile properly
+
+printnoasm(var)
+
+ubit0 printnoasm(ubit8 str) {
+  es[0x0000] = str
+  es[0x0001] = "0x0e"
+  // its really that simple!
+  // however it is slightly more complex for printing strings, if var were a string here it would throw an error since es[0x0000] has space for 1 character
+}
