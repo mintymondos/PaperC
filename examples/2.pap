@@ -11,7 +11,7 @@ printnoasm(var)
 
 ubit0 printnoasm(ubit8 str) {
   es[0x0000] = str
-  es[0x0001] = "0x0e"
+  es[0x0001] = 0x0e
   // its really that simple!
   // however it is slightly more complex for printing strings, if var were a string here it would throw an error since es[0x0000] has space for 1 character
 }
