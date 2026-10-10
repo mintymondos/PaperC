@@ -1,0 +1,20 @@
+ubit8 var = 1
+// sets the unsigned 8 bit variable "var" to value "1"
+//PaperC automatically executes whatever is at the top of the file
+
+printwithasm(var)
+// paperC supports implicit function calls, it just reads the entire file first at compile time and then starts executing
+
+//ubit0 is the paperC equivalent to C's "void" (inspired by HolyC's u0 for void)
+ubit0 printwithasm(ubit8 str) {
+  //assembly_x86_b16 declares an inline assembly block for x86 architecture with 16 bits, you can replace b16 with b32 or b64.
+  assembly_x86_b16 {
+    (bx = str)
+    // the () at the top of the inline asm block puts values into registers (so in this example it stores str into BX)
+    mov ax, 0xb8000
+    mov es, ax
+    mov es[0x0000], bx
+    mov es[0x0001], 0x0e
+  }
+}
+// and that is how you print with assembly in Paper C!!!!! :D 2.pap will show how to use #address to print without assembly
